@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react';  // 确保插件已导入
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react()],  // 确保插件已添加
   server: {
     port: 3000,
     open: true,
