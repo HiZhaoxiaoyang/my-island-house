@@ -7,16 +7,19 @@
     --island-accent: #0099ff;
   }
   body {
-    @apply bg-gradient-to-br from-blue-50 to-white text-gray-800;
+    /* @apply bg-gradient-to-br from-blue-100 to-white text-gray-800; */
+    @apply bg-gradient-to-br;
     font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
     line-height: 1.8;
   }
   h1 {
-    @apply text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-island-primary to-blue-600;
+    /* @apply text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-island-primary to-blue-600; */
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
     letter-spacing: -0.05em;
   }
   h2 {
-    @apply text-3xl font-bold text-island-primary mb-6;
+    /* @apply text-3xl font-bold text-island-primary mb-6; */
+    /* @apply mb-6; */
   }
   .text-stroke {
     -webkit-text-stroke: 1px currentColor;

@@ -1,0 +1,16 @@
+import { type Config } from 'tailwindcss';
+
+export default {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./public/index.html"
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'island-primary': '#0099ff',
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config;
