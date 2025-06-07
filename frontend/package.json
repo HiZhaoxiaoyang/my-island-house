@@ -4,6 +4,7 @@
   "description": "A 3D personal site: My Island House",
   "main": "index.js",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
