@@ -41,7 +41,7 @@ const Home = () => (
           <div className="mt-10">
             <h3 className="text-xl mb-6">核心能力</h3>
             <div className="flex flex-wrap gap-4">
-              {['React', 'Three.js', 'WebGL', 'UI/UX'].map((skill) => (
+              {['React', 'Three.js', 'WebGL', 'UI/UX', 'Java', 'Python', 'TypeScript', 'Spring Boot', 'MySQL', 'Docker', 'Linux', 'Nginx', 'Git', 'GitHub', 'VS Code', 'Postman'].map((skill) => (
                 <span 
                   key={skill}
                   className="px-5 py-2 bg-gradient-to-r from-island-primary/10 to-blue-100 rounded-full font-medium hover:from-island-primary/20 transition-colors"

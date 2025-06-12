@@ -20,26 +20,43 @@ const Tree3D = () => {
     cylinder.position.y = length / 2;
     branch.add(cylinder);
 
-    // 如果达到最大深度，添加树叶（增加细节）
+    // 如果达到最大深度，添加树叶
     if (depth === 0) {
       // 创建多个树叶簇，增加细节
       const leafCount = Math.floor(Math.random() * 3) + 2; // 2-4个树叶簇
+      // 定义绿色和粉色调色板
+      const leafColors = [
+        0x228b22, 0x32cd32, 0x00ff7f, 0x7cfc00, // 绿色系
+        0xffb6c1, 0xff69b4, 0xffc0cb, 0xda70d6  // 粉色系
+      ];
+      
       for (let i = 0; i < leafCount; i++) {
-        const leafSize = length * (0.4 + Math.random() * 0.4);
+        const leafSize = length * (0.3 + Math.random() * 0.3);
+        // 改回SphereGeometry，调整细分度使球体更圆润
         const leavesGeometry = new THREE.SphereGeometry(leafSize, 16, 16);
-        const leavesMaterial = new THREE.MeshPhongMaterial({ 
-          color: 0x228b22 + Math.floor(Math.random() * 0x101010), // 随机绿色变化
+        
+        // 随机选择绿色或粉色
+        const colorIndex = Math.floor(Math.random() * leafColors.length);
+        const leavesMaterial = new THREE.MeshPhongMaterial({
+          color: leafColors[colorIndex] + Math.floor(Math.random() * 0x080808), // 轻微颜色变化
           transparent: true,
-          opacity: 0.9
+          opacity: 0.85 + Math.random() * 0.15
         });
+        
         const leaves = new THREE.Mesh(leavesGeometry, leavesMaterial);
         // 随机分布树叶位置
         leaves.position.y = length * (0.8 + Math.random() * 0.4);
         leaves.position.x = (Math.random() - 0.5) * length * 0.5;
         leaves.position.z = (Math.random() - 0.5) * length * 0.5;
+        
         // 随机旋转树叶
         leaves.rotation.x = Math.random() * Math.PI;
         leaves.rotation.y = Math.random() * Math.PI;
+        
+        // 添加轻微缩放变化
+        const scale = 0.9 + Math.random() * 0.3;
+        leaves.scale.set(scale, scale, scale);
+        
         branch.add(leaves);
       }
       return branch;
@@ -95,13 +112,13 @@ const Tree3D = () => {
     sceneRef.current.add(directionalLight);
 
     // 创建树干 - 调整位置到底部
-    const trunkGeometry = new THREE.CylinderGeometry(0.6, 0.8, 5, 32); // 稍微增加树干高度
+    const trunkGeometry = new THREE.CylinderGeometry(0.3, 0.5, 5, 32); // 减小树干半径
     const trunkMaterial = new THREE.MeshPhongMaterial({ color: 0x8b4513 });
     const trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
     trunk.position.y = trunkGeometry.parameters.height / 2; // 树干底部位于y=0处
 
-    // 创建树枝系统（增加深度到4级，使树更茂盛）
-    const branches = createBranch(3.5, 0.5, 0, 0, 5);
+    // 创建树枝系统（减小半径使树枝更细）
+    const branches = createBranch(3.5, 0.3, 0, 0, 5); // 原半径为0.5
     branches.position.y = trunkGeometry.parameters.height; // 放置在树干顶部
 
     // 创建完整的树
