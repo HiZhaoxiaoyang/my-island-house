@@ -14,10 +14,6 @@
     --island-accent: #0099ff;
   }
   body {
-<<<<<<< HEAD
-    @apply bg-gradient-to-br from-blue-50 to-white text-gray-800;
-    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
-=======
     @apply bg-gradient-to-br from-blue-100 to-white text-gray-800; /* 恢复完整渐变和文本颜色 */
     font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
     line-height: 1.8;
@@ -32,7 +28,6 @@
   .text-stroke {
     -webkit-text-stroke: 1px currentColor;
     text-stroke: 1px currentColor;
->>>>>>> 2e63d84 (3d tree and ui enhancement)
   }
 }
 
