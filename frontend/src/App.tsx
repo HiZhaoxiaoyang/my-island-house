@@ -14,7 +14,7 @@ const App: React.FC = () => (
       </header>
       {/* 主内容区 */}
       <main className="flex-1 flex items-center justify-center px-4 py-8">
-        <div className="w-full max-w-3xl bg-white/95 rounded-3xl shadow-2xl p-8 border border-blue-100">
+        <div className="w-full bg-white/95 rounded-3xl shadow-2xl p-8 border border-blue-100">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
